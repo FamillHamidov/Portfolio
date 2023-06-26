@@ -1,0 +1,14 @@
+D:\Project\Portfolio_Project\EntityLayer\bin\Debug\net7.0\EntityLayer.deps.json
+D:\Project\Portfolio_Project\EntityLayer\bin\Debug\net7.0\EntityLayer.runtimeconfig.json
+D:\Project\Portfolio_Project\EntityLayer\bin\Debug\net7.0\EntityLayer.dll
+D:\Project\Portfolio_Project\EntityLayer\bin\Debug\net7.0\EntityLayer.pdb
+D:\Project\Portfolio_Project\EntityLayer\obj\Debug\net7.0\EntityLayer.csproj.AssemblyReference.cache
+D:\Project\Portfolio_Project\EntityLayer\obj\Debug\net7.0\EntityLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\Portfolio_Project\EntityLayer\obj\Debug\net7.0\EntityLayer.AssemblyInfoInputs.cache
+D:\Project\Portfolio_Project\EntityLayer\obj\Debug\net7.0\EntityLayer.AssemblyInfo.cs
+D:\Project\Portfolio_Project\EntityLayer\obj\Debug\net7.0\EntityLayer.csproj.CoreCompileInputs.cache
+D:\Project\Portfolio_Project\EntityLayer\obj\Debug\net7.0\EntityLayer.dll
+D:\Project\Portfolio_Project\EntityLayer\obj\Debug\net7.0\refint\EntityLayer.dll
+D:\Project\Portfolio_Project\EntityLayer\obj\Debug\net7.0\EntityLayer.pdb
+D:\Project\Portfolio_Project\EntityLayer\obj\Debug\net7.0\EntityLayer.genruntimeconfig.cache
+D:\Project\Portfolio_Project\EntityLayer\obj\Debug\net7.0\ref\EntityLayer.dll
