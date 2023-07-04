@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
 using Portfolio.Models;
 using System.Diagnostics;
 
@@ -7,17 +11,18 @@ namespace Portfolio.Controllers
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
+		private readonly IAboutDal _aboutDal;
 
-		public HomeController(ILogger<HomeController> logger)
+		public HomeController(ILogger<HomeController> logger, IAboutDal aboutDal)
 		{
 			_logger = logger;
+			_aboutDal = aboutDal;
 		}
-
 		public IActionResult Index()
 		{
-			return View();
+			var values=_aboutDal.GetList();
+			return View(values);
 		}
-
 		public IActionResult Privacy()
 		{
 			return View();

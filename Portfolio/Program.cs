@@ -1,12 +1,21 @@
+using BusinessLayer;
+using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using DataAccessLayer;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<Context>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("default")));
+builder.Services.AddDbContext<Context>(opt =>
+opt.UseSqlServer(builder.Configuration.GetConnectionString("default")));
+builder.Services.AddScoped<IAboutDal, EfAboutService>();
+builder.Services.AddScoped<IAboutService, AboutManager>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
