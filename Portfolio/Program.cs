@@ -14,7 +14,15 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<Context>(opt =>
 opt.UseSqlServer(builder.Configuration.GetConnectionString("default")));
 builder.Services.AddScoped<IAboutDal, EfAboutService>();
-builder.Services.AddScoped<IAboutService, AboutManager>();
+builder.Services.AddScoped<IAboutService,AboutManager>();
+builder.Services.AddScoped<ISkillDal, EfSkillService>();
+builder.Services.AddScoped<ISkillService, SkillManager>();
+builder.Services.AddScoped<IEducationDal, EfEducationService>();
+builder.Services.AddScoped<IEducationService, EducationManager>();
+builder.Services.AddScoped<IExperienceDal, EfExperienceService>();
+builder.Services.AddScoped<IExperienceService, ExperienceManager>();
+builder.Services.AddScoped<IPortfolioDal, EfPortfolioService>();
+builder.Services.AddScoped<IPortfolioService, PortfolioManager>();
 
 var app = builder.Build();
 
@@ -33,8 +41,16 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+
+app.MapControllerRoute(
+	  name: "areas",
+	  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
 	name: "default",
 	pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+
 
 app.Run();

@@ -8,7 +8,8 @@ namespace EntityLayer.Entities
 {
 	public class Experience:BaseEntity
 	{
-        public DateTime Date { get; set; }
+        public DateTime BeginDate { get; set; }
+        public DateTime EndDate { get; set; }
         public string CompanyName { get; set; } = null!;
         public string Title { get; set; } = null!;
         public string? Description{ get; set; } 

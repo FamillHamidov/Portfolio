@@ -11,17 +11,14 @@ namespace Portfolio.Controllers
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
-		private readonly IAboutDal _aboutDal;
 
-		public HomeController(ILogger<HomeController> logger, IAboutDal aboutDal)
+		public HomeController(ILogger<HomeController> logger)
 		{
 			_logger = logger;
-			_aboutDal = aboutDal;
 		}
 		public IActionResult Index()
 		{
-			var values=_aboutDal.GetList();
-			return View(values);
+			return View();
 		}
 		public IActionResult Privacy()
 		{

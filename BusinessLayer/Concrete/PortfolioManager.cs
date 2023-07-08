@@ -18,27 +18,27 @@ namespace BusinessLayer.Concrete
 			_portfolioDal = portfolioDal;
 		}
 
-		public void Delete(Portfolio t)
+		public void Delete(Project t)
 		{
 			_portfolioDal.Delete(t);
 		}
 
-		public List<Portfolio> GetAll()
+		public List<Project> GetAll()
 		{
 			return _portfolioDal.GetList();
 		}
 
-		public Portfolio GetById(int id)
+		public Project GetById(int id)
 		{
 			return _portfolioDal.GetById(id);
 		}
 
-		public void TAdd(Portfolio t)
+		public void TAdd(Project t)
 		{
 			_portfolioDal.Insert(t);
 		}
 
-		public void Update(Portfolio t)
+		public void Update(Project t)
 		{
 			_portfolioDal.Update(t);
 		}

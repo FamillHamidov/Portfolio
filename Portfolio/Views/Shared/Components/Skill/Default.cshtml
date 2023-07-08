@@ -1,0 +1,27 @@
+﻿@using EntityLayer.Entities
+@model List<Skill>
+
+<div class="row py-3">
+	@foreach (var item in Model)
+	{
+		<div class="col-md-6">
+			<div class="px-lg-3">
+				<h4 class="wow fadeInUp">Skills</h4>
+				<div class="progress-wrapper wow fadeInUp">
+					<span class="caption">@item.SkillName</span>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" style="width: @item.Value%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">@item.Value%</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+</div>
+
+
+
+
+
+
+
+

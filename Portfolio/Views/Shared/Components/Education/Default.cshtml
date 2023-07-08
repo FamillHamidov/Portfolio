@@ -1,0 +1,21 @@
+﻿@using EntityLayer.Entities
+@model List<Education>
+
+<div class="col-md-6 wow fadeInRight">
+	<h2 class="fw-normal">Education</h2>
+	@foreach (var item in Model)
+	{
+		<ul class="timeline mt-4 pr-md-5">
+		<li>
+			<div class="title">@item.BeginDate - @item.EndDate</div>
+			<div class="details">
+				<h5>@item.Profession</h5>
+				<small class="fg-theme">@item.University</small>
+				<p>@item.Description</p>
+			</div>
+		</li>
+	</ul>
+	}
+	
+</div>
+

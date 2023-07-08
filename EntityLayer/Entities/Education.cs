@@ -8,7 +8,8 @@ namespace EntityLayer.Entities
 {
 	public class Education:BaseEntity
 	{
-        public DateTime Date { get; set; }
+        public DateTime BeginDate { get; set; }
+        public DateTime EndDate { get; set; }
         public string University { get; set; } = null!;
         public string Profession { get; set; } = null!;
         public string?  Description { get; set; }

@@ -1,0 +1,20 @@
+﻿@using EntityLayer.Entities
+@model List<Experience>
+
+<div class="col-md-6 wow fadeInRight" data-wow-delay="200ms">
+	<h2 class="fw-normal">Experience</h2>
+	@foreach (var item in Model)
+	{
+		<ul class="timeline mt-4 pr-md-5">
+		<li>
+			<div class="title">@item.BeginDate - @item.EndDate</div>
+			<div class="details">
+				<h5>@item.Title</h5>
+				<small class="fg-theme">@item.CompanyName</small>
+				<p>@item.Description</p>
+			</div>
+		</li>
+	</ul>
+	}
+	
+</div>

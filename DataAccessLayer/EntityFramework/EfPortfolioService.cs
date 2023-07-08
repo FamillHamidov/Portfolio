@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-	public class EfPortfolioService : GenericRepository<Portfolio>, IPortfolioDal
+	public class EfPortfolioService : GenericRepository<Project>, IPortfolioDal
 	{
 		public EfPortfolioService(Context context) : base(context)
 		{

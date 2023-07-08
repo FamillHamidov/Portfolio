@@ -1,0 +1,31 @@
+﻿@using EntityLayer.Entities
+@model List<Experience>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<table class="table table-bordered">
+	<tr>
+		<th>Company</th>
+		<th>Title</th>
+		<th>BeginDate</th>
+		<th>EndDate</th>
+		<th>Description</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item.CompanyName</td>
+			<td>@item.Title</td>
+			<td>@item.BeginDate</td>
+			<td>@item.EndDate</td>
+			<td>@item.Description</td>
+			<td>
+				<a href="/Admin/Experience/Delete/@item.Id" class="btn btn-danger">Delete</a>
+				<a href="/Admin/Experience/GetExpInfo/@item.Id" class="btn btn-success">Update</a>
+			</td>
+		</tr>
+	}
+</table>
+<a href="/Admin/Experience/AddExp" class="btn btn-primary">Add New Experience</a>
+

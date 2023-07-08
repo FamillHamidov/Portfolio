@@ -1,0 +1,25 @@
+﻿@using EntityLayer.Entities
+@model List<Skill>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<table class="table table-bordered">
+	<tr>
+		<th>Skill Name</th>
+		<th>Value</th>
+		<th>Process</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item.SkillName</td>
+			<td>@item.Value</td>
+			<td>
+				<a href="/Admin/Skill/DeleteSkill/@item.Id" class="btn btn-danger">Delete</a>
+				<a href="/Admin/Skill/GetSkillInfo/@item.Id" class="btn btn-success">Update</a>
+			</td>
+		</tr>
+	}
+</table>
+
