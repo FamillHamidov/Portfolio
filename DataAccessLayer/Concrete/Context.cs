@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete
 {
-	public class Context:DbContext
+	public class Context:IdentityDbContext<AdminUser, AdminRole, int>
 	{
         public Context(DbContextOptions<Context> options):base(options)
         {
@@ -21,5 +22,6 @@ namespace DataAccessLayer.Concrete
         public DbSet<Project> Portfolios { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Skill> Skills { get; set; }
+        public DbSet<TestClass> TestClasses { get; set; }
     }
 }

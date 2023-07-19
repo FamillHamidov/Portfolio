@@ -5,30 +5,30 @@
 	Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<table class="table table-bordered">
-	<tr>
-		<th>Name</th>
-		<th>Title</th>
-		<th>LivesIn</th>
-		<th>FromIn</th>
-		<th>Age</th>
-		<th>Gender</th>
-		<th>Change</th>
-	</tr>
-	@foreach (var item in Model)
-	{
+	<table class="table table-bordered" style="margin-top:20px;margin-left:20px;margin-right:20px">
 		<tr>
-			<td>@item.Name</td>
-			<td>@item.Title</td>
-			<td>@item.LivesIn</td>
-			<td>@item.From</td>
-			<td>@item.Age</td>
-			<td>@item.Gender</td>
-			<td>
-				<a href="/Admin/Home/GetAboutInfo/@item.Id" class="btn btn-success">Update</a>
-			</td>
+			<th>Name</th>
+			<th>Title</th>
+			<th>LivesIn</th>
+			<th>FromIn</th>
+			<th>Age</th>
+			<th>Gender</th>
+			<th>Change</th>
 		</tr>
-	}
-</table>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Name</td>
+				<td>@item.Title</td>
+				<td>@item.LivesIn</td>
+				<td>@item.From</td>
+				<td>@item.Age</td>
+				<td>@item.Gender</td>
+				<td>
+					<a href="/Admin/Home/GetAboutInfo/@item.Id" class="btn btn-success">Update</a>
+				</td>
+			</tr>
+		}
+	</table>
 
 
