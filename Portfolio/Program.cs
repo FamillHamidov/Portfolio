@@ -5,6 +5,7 @@ using DataAccessLayer;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,7 @@ builder.Services.AddScoped<IExperienceDal, EfExperienceService>();
 builder.Services.AddScoped<IExperienceService, ExperienceManager>();
 builder.Services.AddScoped<IPortfolioDal, EfPortfolioService>();
 builder.Services.AddScoped<IPortfolioService, PortfolioManager>();
+builder.Services.AddIdentity<AdminUser, AdminRole>().AddEntityFrameworkStores<Context>();
 
 var app = builder.Build();
 
