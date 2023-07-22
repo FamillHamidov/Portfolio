@@ -7425,6 +7425,18 @@
       "PackagePath": "staticwebassets\\admin\\vendor\\jquery\\jquery.slim.min.map"
     },
     {
+      "Id": "D:\\Project\\Portfolio_Project\\Portfolio\\wwwroot\\adminimage\\9fb006e0-2feb-4968-82bc-a62b0c66082f.png",
+      "PackagePath": "staticwebassets\\adminimage\\9fb006e0-2feb-4968-82bc-a62b0c66082f.png"
+    },
+    {
+      "Id": "D:\\Project\\Portfolio_Project\\Portfolio\\wwwroot\\adminimage\\ae762cb5-9686-4f1d-907d-83d0ae5a66e9.jpeg",
+      "PackagePath": "staticwebassets\\adminimage\\ae762cb5-9686-4f1d-907d-83d0ae5a66e9.jpeg"
+    },
+    {
+      "Id": "D:\\Project\\Portfolio_Project\\Portfolio\\wwwroot\\adminimage\\eec39228-a021-47a5-8ff5-ddff7dc4b1f2.jpeg",
+      "PackagePath": "staticwebassets\\adminimage\\eec39228-a021-47a5-8ff5-ddff7dc4b1f2.jpeg"
+    },
+    {
       "Id": "D:\\Project\\Portfolio_Project\\Portfolio\\wwwroot\\assets\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\assets\\css\\bootstrap.css"
     },
