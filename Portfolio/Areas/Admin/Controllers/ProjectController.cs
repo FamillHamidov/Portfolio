@@ -1,5 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using EntityLayer.Dto;
 using EntityLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -52,6 +54,41 @@ namespace Portfolio.Areas.Admin.Controllers
 			_portfolioService.Delete(project);
 			_context.SaveChanges();
 			return RedirectToAction("Index");
+		}
+		[HttpGet]
+		public IActionResult Image(int id)
+		{
+			var info = _portfolioService.GetById(id);
+			ProjectDto dto = new ProjectDto
+			{
+				Id = info.Id,
+				ProjectName = info.ProjectName,
+				FileName = info.FileName,
+				Description = info.Description,
+				PictureUrl = info.PictureUrl
+			};
+			return View(dto);
+		}
+		[HttpPost]
+		public async Task<IActionResult> Image(ProjectDto dto, Project project )
+		{
+			if (dto.Picture != null)
+			{
+				var resource = Directory.GetCurrentDirectory();
+				var extension = Path.GetExtension(dto.Picture.FileName);
+				var imageName = Guid.NewGuid() + extension;
+				var saveLocation = resource + "/wwwroot/adminimage/" + imageName;
+				var stream = new FileStream(saveLocation, FileMode.Create);
+				await dto.Picture.CopyToAsync(stream);
+				project.PictureUrl = "/adminimage/" + imageName;
+			}
+			project.ProjectName = dto.ProjectName;
+			project.FileName = dto.FileName;
+			project.Description = dto.Description;
+			project.ProjectName = dto.ProjectName;
+			_portfolioService.Update(project);
+			_context.SaveChanges();
+			return View();
 		}
 	}
 }
