@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Entities
 {
-	public class Skill:BaseEntity
+	public class Skill : BaseEntity
 	{
 		public string SkillName { get; set; } = null!;
-		public int Value{ get; set; } 
-    }
+		
+		public int Value { get; set; }
+
+	}
 }
