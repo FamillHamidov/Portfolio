@@ -58,10 +58,9 @@
                                         <input asp-for="ConfirmPassword"  type="password" class="form-control form-control-user"
                                                id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <input asp-for="ImageUrl" type="text" class="form-control form-control-user"
-                                           placeholder="Picture Url">
+                                    <div class="col-sm-6">
+                                        <input asp-for="ImageUrl" type="hidden" value="Test" class="form-control form-control-user">
+                                    </div>
                                 </div>
                                 <button class="btn btn-primary btn-user btn-block">Register Account</button>
                                @* <a href="/Admin/Login/Register/" class="btn btn-primary btn-user btn-block">

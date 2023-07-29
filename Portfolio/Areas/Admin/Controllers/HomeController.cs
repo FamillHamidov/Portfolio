@@ -2,6 +2,7 @@
 using DataAccessLayer.Concrete;
 using EntityLayer.Dto;
 using EntityLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Areas.Admin.Models;
@@ -9,6 +10,7 @@ using Portfolio.Areas.Admin.Models;
 namespace Portfolio.Areas.Admin.Controllers
 {
 	[Area("Admin")]
+	[Authorize]
 	public class HomeController : Controller
 	{
 		private readonly IAboutService _aboutService;

@@ -1,8 +1,10 @@
 ﻿using BusinessLayer.Abstract;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Dto;
 using EntityLayer.Entities;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Portfolio.Areas.Admin.Controllers
@@ -31,9 +33,22 @@ namespace Portfolio.Areas.Admin.Controllers
 		[HttpPost]
 		public IActionResult AddProject(Project project)
 		{
-			_portfolioService.TAdd(project);
-			_context.SaveChanges();
-			return RedirectToAction("Index");
+			ProjectValidator validations = new ProjectValidator();
+			ValidationResult result=validations.Validate(project);
+			if (result.IsValid)
+			{
+				_portfolioService.TAdd(project);
+				_context.SaveChanges();
+				return RedirectToAction("Index");
+			}
+			else
+			{
+				foreach (var item in result.Errors)
+				{
+					ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+				}
+			}
+			return View();
 		}
 		[HttpGet]
 		public IActionResult GetProjectInfo(int id)
@@ -65,7 +80,8 @@ namespace Portfolio.Areas.Admin.Controllers
 				ProjectName = info.ProjectName,
 				FileName = info.FileName,
 				Description = info.Description,
-				PictureUrl = info.PictureUrl
+				PictureUrl = info.PictureUrl,
+				ProjectUrl = info.ProjectUrl,
 			};
 			return View(dto);
 		}
@@ -86,6 +102,7 @@ namespace Portfolio.Areas.Admin.Controllers
 			project.FileName = dto.FileName;
 			project.Description = dto.Description;
 			project.ProjectName = dto.ProjectName;
+			project.ProjectUrl= dto.ProjectUrl;
 			_portfolioService.Update(project);
 			_context.SaveChanges();
 			return View();

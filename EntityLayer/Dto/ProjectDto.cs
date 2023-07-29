@@ -13,6 +13,7 @@ namespace EntityLayer.Dto
         public string? FileName { get; set; }
 		public string ProjectName { get; set; } = null!;
 		public string? Description { get; set; }
+		public string? ProjectUrl { get; set; }
 		public string? PictureUrl { get; set; }
         public IFormFile? Picture { get; set; }
     }

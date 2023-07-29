@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Areas.Admin.Models;
@@ -6,6 +7,7 @@ using Portfolio.Areas.Admin.Models;
 namespace Portfolio.Areas.Admin.Controllers
 {
 	[Area("Admin")]
+	[AllowAnonymous]
 	public class LoginController : Controller
 	{
 		private readonly UserManager<AdminUser> _userManager;
@@ -35,12 +37,12 @@ namespace Portfolio.Areas.Admin.Controllers
 				Name = model.Name,
 				Surname = model.Surname,
 				UserName=model.Username,
-				PictureUrl=model.ImageUrl
+				PictureUrl=model.ImageUrl,
 			};
 			var result=await _userManager.CreateAsync(viewModel,model.Password);
 			if (result.Succeeded)
 			{
-				return RedirectToAction("Login", "Login");
+				return RedirectToAction("SignIn", "Login");
 			}
 			else
 			{

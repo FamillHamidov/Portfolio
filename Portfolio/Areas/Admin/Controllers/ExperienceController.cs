@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Abstract;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete;
 using EntityLayer.Entities;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Portfolio.Areas.Admin.Controllers
@@ -30,9 +32,23 @@ namespace Portfolio.Areas.Admin.Controllers
 		[HttpPost]
 		public IActionResult AddExp(Experience experience)
 		{
-			_experienceService.TAdd(experience);
-			_context.SaveChanges();
-			return RedirectToAction("Index");
+			ExperienceValidator validations = new ExperienceValidator();
+			ValidationResult result=validations.Validate(experience);
+			if (result.IsValid) 
+			{
+				_experienceService.TAdd(experience);
+				_context.SaveChanges();
+				return RedirectToAction("Index");
+			}
+			else
+			{
+				foreach (var item in result.Errors)
+				{
+					ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+				}
+			}
+			return View();
+			
 		}
 		[HttpGet]
 		public IActionResult GetExpInfo(int id)

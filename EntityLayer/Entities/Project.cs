@@ -12,5 +12,6 @@ namespace EntityLayer.Entities
         public string ProjectName { get; set; } = null!;
         public string? Description { get; set; }
         public string? PictureUrl { get; set; }
+        public string? ProjectUrl { get; set; }
     }
 }
