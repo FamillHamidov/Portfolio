@@ -66,7 +66,19 @@ namespace Portfolio.Areas.Admin.Controllers
 			{
 				return RedirectToAction("Index", "Home");
 			}
+			else
+			{
+				ModelState.AddModelError("", "Username or password is incorrect");
+			}
 			return View();
+		}
+		public async Task<IActionResult> SignOut()
+		{
+			if (User.Identity.IsAuthenticated)
+			{
+				await _signInManager.SignOutAsync();
+			}
+			return RedirectToAction("SignIn", "Login");
 		}
 	}
 }
